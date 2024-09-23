@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Adhyapanam</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="shortcut icon" th:href="@{/icon/icon5.png}">
+</head>
+<body>
+	
+	<header th:replace="fragments/header :: header"></header>
+	
+	<hr>
+	 <div class="container mt-5">
+        <h2 class="text-center">Faculty Registration Form</h2>
+        <form th:action="@{/facultys}" th:Object="${faculty}" method="post" enctype="multipart/form-data" class="mt-4">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="middleName">Middle Name:</label>
+                    <input type="text" class="form-control" id="middleName" name="middleName" th:field="*{middleName}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" required>
+                </div>
+                <div class="form-group col-md-3 text-center">
+                    <label for="facultyPhoto">Faculty Photo:</label>
+                    <input type="file" class="form-control-file" id="facultyPhoto" name="file" onchange="previewImage(event)">
+                    <img id="imgPreview" class="img-preview mt-2">
+                </div>
+            </div>
+            <div class="form-row">
+               <div class="form-group col-md-4">
+                  <label for="userName">Username:</label>
+                  <input type="text" class="form-control" id="userName" name="userName" th:field="*{userName}" required>
+               </div>
+               <div class="form-group col-md-4">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password" name="password" th:field="*{password}" required>
+               </div>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" th:field="*{dob}" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" th:field="*{gender}" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" th:field="*{email}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" th:field="*{phone}" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea class="form-control" id="address" name="address" rows="3" th:field="*{address}" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <input type="text" class="form-control" id="department" name="department" th:field="*{department}" required>
+            </div>
+            <div class="form-group">
+                <label for="position">Position:</label>
+                <input type="text" class="form-control" id="position" name="position" th:field="*{position}" required>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+	<hr>
+	
+	<footer th:replace="fragments/footer :: footer"></footer>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+		<script type="text/javascript" th:src="@{/js/image.js}"></script>
+</body>
+</html>
