@@ -1,7 +1,7 @@
 services:
   - type: web
     name: AdhyapanamWebApp  # Chosen service name
-    env: docker
+    env: docker              # Set to docker since you're using a Dockerfile
     docker:
-      buildCommand: docker build -t adhyapanam-app .  # Chosen image name
-      startCommand: docker run -p $PORT:8080 adhyapanam-app  # Use the same image name here
+      dockerfile: ./Tral-2/Dockerfile  # Path to your Dockerfile
+      context: ./Tral-2                  # Context for the build
