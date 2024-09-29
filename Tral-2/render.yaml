@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: AdhyapanamWebApp  # Chosen service name
+    env: docker
+    docker:
+      buildCommand: docker build -t adhyapanam-app .  # Chosen image name
+      startCommand: docker run -p $PORT:8080 adhyapanam-app  # Use the same image name here
